@@ -11,15 +11,17 @@ echo "<ul>";
 foreach($hobi as $kegiatan) {
     echo "<li>$kegiatan</li>";
 }
-echo "</ul";
+echo "</ul>";
 // Array Asosiatif
     $mahasiswa = array(
-    'npm' => 2125250066, 
+    "npm" => 2125250066, 
     "nama" => "Raden George Samuel Budi", 
-    "jk" => "Laki = laki");
+    "jk" => "Laki - laki");
 
  echo $mahasiswa['nama'];
+ echo "<br>";
  echo $mahasiswa['npm'];
+ echo "<br>";
  echo $mahasiswa['jk'];
 
 //  array multidimensi
@@ -33,6 +35,16 @@ $mahasiswas = [
         "nama" => "Zangetsu"
     ]
     ];
+echo "<table border=1> <tr>
+    <th>Nama</th> <th>Nama Mahasiswa</th>
+</tr>";
 
+foreach($mahasiswas as $data){
+    echo "<tr>
+    <td>".$data['nama']."
+    </td><td>".$data['npm']."</td>
+    </tr>";
+}
+echo "</table>";
 
 ?>
