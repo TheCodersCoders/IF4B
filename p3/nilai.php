@@ -8,6 +8,7 @@ function getAM($kode_Am){
             'B' => "3",
             'C+' => "2.7",
             'C' => "2.0",
+            'D' => "1,7"
         ];
         return $am[$kode_Am];
     }
@@ -21,7 +22,7 @@ function getAM($kode_Am){
     function getIPK($total_m,$total_k){
         return number_format(($total_m / $total_k),2);
     }
-    function getPredikatKelulusan($ipk){
+    function getPredikatKelulusan($ipk, $adaD = false){
         if($ipk > 2.5 && $ipk< 2.75 ){
             return "Lulus";
         }
@@ -32,6 +33,9 @@ function getAM($kode_Am){
             return "Sangat Memuaskan";
         }
         else if($ipk >= 3.51){
+            if($adaD == true){
+                return "Sangat Memuaskan";
+            }
             return "Dengan Pujian";
         }
         

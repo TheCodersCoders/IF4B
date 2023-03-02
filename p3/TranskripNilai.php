@@ -3,9 +3,9 @@
 echo "<h1 align='center'>Transkrip Nilai</h1>";
 require("nilai.php");
 $mahasiswa = [
-    [ "mata_kuliah" => "Algoritma Struktur Data", "kode_mk" => "I1206","hm" => "C+",'k' => 3,],["mata_kuliah" => "Algoritma Struktur Data II", "kode_mk" => "IF0017","hm" => "B+",'k' => 3,],["mata_kuliah" => "Aljabar Linier dan Matriks","kode_mk" => "l1206","hm" => "B",'k' => 4,],["mata_kuliah" => "Bahasa Inggris I","kode_mk" => "R0001	","hm" => "B",'k' => 2,],[ "mata_kuliah" => "Basis Data I","kode_mk" => "I1213	","hm" => "A",'k' => 4,],
+    [ "mata_kuliah" => "Algoritma Struktur Data", "kode_mk" => "I1206","hm"=>"C+",'k' => 3,],["mata_kuliah" => "Algoritma Struktur Data II", "kode_mk" =>"IF0017","hm" => "B+",'k' => 3,],["mata_kuliah" => "Aljabar Linier dan Matriks","kode_mk" => "l1206","hm" => "B",'k' => 4,],["mata_kuliah" => "Bahasa Inggris I","kode_mk" => "R0001	","hm" => "B",'k' => 2,],[ "mata_kuliah" => "Basis Data I","kode_mk" => "I1213	","hm" => "A",'k' => 4,],
 ];
- echo"<table  align='center'>
+ echo"<table  align='center' border=1>
     <tr style='background: aqua;border:1px solid black;'>
             
             <th rowspan=2>MataKuliah</th>
@@ -20,11 +20,15 @@ $mahasiswa = [
             <td>M</td>
     </tr>";
     $total_k = 0;$total_m = 0;
-
-    foreach($mahasiswa as $data){
+        foreach($mahasiswa as $data){
+            if($data['hm'] == "D"){
+            $adaD = true;
+            }
+        
         $total_k += $data['k'];
         $total_m += getM(getAmByHM($data['hm']),$data['k']);
         $ipk = getIPK($total_m, $total_k);
+        $adaD = false;
         echo "<tr style='background:white;' align='center' >
            
             <td style='background:#C2F9FF;'>".$data['mata_kuliah']."</td>
@@ -44,7 +48,7 @@ $mahasiswa = [
     <td colspan='4'>IPK</td><td colspan='5' align='center'>". getIPK($total_m, $total_k)."</td></tr>";
     echo "<tr style='background:#C2F9FF;'>
     <td colspan='2' >Predikat</td>
-    <td colspan='4'>".getPredikatKelulusan($ipk)."</td>
+    <td colspan='4'>".getPredikatKelulusan($ipk, $mahasiswa)."</td>
     </tr>";
     echo"</table>";
 ?>
