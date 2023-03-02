@@ -1,33 +1,50 @@
 <?php
 
-echo "<h1>Transkrip Nilai</h1>";
+echo "<h1 align='center'>Transkrip Nilai</h1>";
 require("nilai.php");
 $mahasiswa = [
-    [ "mata_kuliah" => "Algoritma Struktur Data", "kode_mk" => "I1206","hm" => "C+",'k' => 3,],
-    ["mata_kuliah" => "Algoritma Struktur Data II", "kode_mk" => "IF0017","hm" => "B+",'k' => 3,],
-    ["mata_kuliah" => "Aljabar Linier dan Matriks","kode_mk" => "l1206","hm" => "B",'k' => 4,],
-    ["mata_kuliah" => "Bahasa Inggris I","kode_mk" => "R0001	","hm" => "B",'k' => 2,],
-    [ "mata_kuliah" => "Basis Data I","kode_mk" => "I1213	","hm" => "A",'k' => 4,],
+    [ "mata_kuliah" => "Algoritma Struktur Data", "kode_mk" => "I1206","hm" => "C+",'k' => 3,],["mata_kuliah" => "Algoritma Struktur Data II", "kode_mk" => "IF0017","hm" => "B+",'k' => 3,],["mata_kuliah" => "Aljabar Linier dan Matriks","kode_mk" => "l1206","hm" => "B",'k' => 4,],["mata_kuliah" => "Bahasa Inggris I","kode_mk" => "R0001	","hm" => "B",'k' => 2,],[ "mata_kuliah" => "Basis Data I","kode_mk" => "I1213	","hm" => "A",'k' => 4,],
 ];
-echo "<table border=1";
-echo "<ul>";
+ echo"<table  align='center'>
+    <tr style='background: aqua;border:1px solid black;'>
+            
+            <th rowspan=2>MataKuliah</th>
+            <th rowspan=2>Kode Mata Kuliah</th>
+            <th colspan=4>Prestasi</th>
 
-echo "<tr>
-<td>Mata Kuliah</td>
-<td>Kode Kelas</td>
-<td>HM</td>
-<td>AM</td>
-<td>K</td>
-<td>M</td>
-</tr>";
-foreach($mahasiswa as $data){
+    </tr>";
+    echo"<tr style='background: #30E3C6'>
+            <td>HM</td>
+            <td>AM</td>
+            <td>K</td>
+            <td>M</td>
+    </tr>";
+    $total_k = 0;$total_m = 0;
+
+    foreach($mahasiswa as $data){
+        $total_k += $data['k'];
+        $total_m += getM(getAmByHM($data['hm']),$data['k']);
+        $ipk = getIPK($total_m, $total_k);
+        echo "<tr style='background:white;' align='center' >
+           
+            <td style='background:#C2F9FF;'>".$data['mata_kuliah']."</td>
+            <td >".$data['kode_mk']."</td>
+            <td>".$data['hm']."</td>
+            <td>".getAmByHM($data['hm'])."</td>
+            <td>".$data['k']."</td>
+            <td>".getM(getAmByHM($data['hm']),$data['k'])."</td>
+            </tr>";
+    }  
+    echo "<tr style='background:#C2F9FF;'>
+    <td colspan='4'>Jumlah</td>
+    <td>$total_k</td>
+    <td>$total_m</td>
+    </tr>";
     echo "<tr>
-    <td>".$data['mata_kuliah']."</td>
-     <td>"
-    .$data['kode_mk']."</td><td> ".$data['hm']."</td>
-    <td>".getAM($data['am'])."</td><td>".$data['k']."</td><td>".
-    getM(getAM($data['hm']), $data['k'])."</td> </tr>";        
-}
-echo "</ul>";
-echo "</table>"
+    <td colspan='4'>IPK</td><td colspan='5' align='center'>". getIPK($total_m, $total_k)."</td></tr>";
+    echo "<tr style='background:#C2F9FF;'>
+    <td colspan='2' >Predikat</td>
+    <td colspan='4'>".getPredikatKelulusan($ipk)."</td>
+    </tr>";
+    echo"</table>";
 ?>
