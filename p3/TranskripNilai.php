@@ -13,17 +13,22 @@ $mahasiswa = [
             <th colspan=4>Prestasi</th>
 
     </tr>";
-    echo"<tr style='background: #30E3C6'>
+    echo"<tr style='background: #30E3C6' align='center'>
             <td>HM</td>
             <td>AM</td>
             <td>K</td>
             <td>M</td>
     </tr>";
-    $total_k = 0;$total_m = 0;
+    $total_k = 0;$total_m = 0; $adaD = false; $total_d = 0; $nilai_ta = false ; $adaE = false;
         foreach($mahasiswa as $data){
             if($data['hm'] == "D"){
             $adaD = true;
+          
             }
+            if($data['hm'] == "E"){
+                $adaE = true;
+                }
+            
         
         $total_k += $data['k'];
         $total_m += getM(getAmByHM($data['hm']),$data['k']);
@@ -49,6 +54,11 @@ $mahasiswa = [
     echo "<tr style='background:#C2F9FF;'>
     <td colspan='2' >Predikat</td>
     <td colspan='4'>".getPredikatKelulusan($ipk, $mahasiswa)."</td>
+    
+    </tr>";
+    echo "<tr>
+    <td colspan='2' >Yudisium</td>
+    <td colspan='4'>".getSyaratYudisium($ipk, $adaE, $nilai_ta,$total_d)."</td>
     </tr>";
     echo"</table>";
 ?>

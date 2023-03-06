@@ -8,7 +8,8 @@ function getAM($kode_Am){
             'B' => "3",
             'C+' => "2.7",
             'C' => "2.0",
-            'D' => "1,7"
+            'D' => "1,7",
+            'E' => "1,5"
         ];
         return $am[$kode_Am];
     }
@@ -39,6 +40,28 @@ function getAM($kode_Am){
             return "Dengan Pujian";
         }
         
+    }
+
+    function getSyaratYudisium($ipk, $adaE = false, $nilai_ta = true, $total_d){
+        $yudisium = "";
+        if($ipk >= 2.50 ){
+            if($adaE == true && $nilai_ta == false && $total_d >= 8){
+                if($adaE == false && $nilai_ta == true && $total_d >= 8){
+                    if($adaE == false && $nilai_ta == false && $total_d <= 8){
+                        if($adaE == true && $nilai_ta == true && $total_d <= 8){
+                           $yudisium =  "Tidak Bisa Mengikuti Yudisium";
+                        }
+                    }
+                }
+            }
+        }
+        else if($ipk < 2.50){
+            $yudisium =  "Tidak Bisa mengikuti Yudisium";
+        }
+        else {
+            $yudisium = "Bisa Mengikuti Yudisium";
+        }
+        return $yudisium;
     }
 
 
