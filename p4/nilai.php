@@ -44,25 +44,15 @@ function getAM($kode_Am){
 
     function getSyaratYudisium($ipk, $adaE = false, $nilai_ta = true, $total_d){
         $yudisium = "";
-        if($ipk >= 2.50) {
-        if( $adaE == true && $nilai_ta == false && $total_d >= 8){
-                $yudisium =  "Tidak Bisa Mengikuti Yudisium";
-            }
-        else if(  $adaE == false && $nilai_ta == true && $total_d >= 8){
-                $yudisium =  "Tidak Bisa Mengikuti Yudisium";
-            }
-        else if( $adaE == false && $nilai_ta == false && $total_d <= 8){
-                $yudisium =  "Tidak Bisa Mengikuti Yudisium";
-            }
-        else if($adaE == true && $nilai_ta == true && $total_d <= 8){
-                $yudisium =  "Tidak Bisa Mengikuti Yudisium";
+        if($ipk >= 2.50 && $adaE == true && $nilai_ta == false && $total_d >= 8){
+                return  "Tidak Bisa Mengikuti Yudisium";
             }
         else if($ipk <= 2.50){
-            $yudisium =  "Tidak Bisa mengikuti Yudisium";
+            return  "Tidak Bisa mengikuti Yudisium";
         }
-        }
+        
         else if($ipk >= 2.50){
-            $yudisium = "Bisa Mengikuti Yudisium";
+            return "Bisa Mengikuti Yudisium";
         }
         return $yudisium;
     }
