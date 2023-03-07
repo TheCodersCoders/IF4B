@@ -13,7 +13,7 @@ $mahasiswa = [
             <th colspan=4>Prestasi</th>
 
     </tr>";
-    echo"<tr style='background: #30E3C6' align='center'>
+    echo"<tr style='background: #30E3C6; border-radius: 5px;' align='center'>
             <td>HM</td>
             <td>AM</td>
             <td>K</td>
