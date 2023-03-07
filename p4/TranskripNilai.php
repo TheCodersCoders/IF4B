@@ -20,7 +20,7 @@ $mahasiswa = [
             if($data['hm'] == "D"){$adaD = true;}  
             if($data['hm'] == "E"){$adaE = true;}
             if($data['hm'] == "D"){$total_d += $data['k'];}
-            $total_k += $data['k'];$total_m += getM(getAmByHM($data['hm']),$data['k']); $ipk = getIPK($total_m, $total_k);$adaD = false;
+            $total_k += $data['k'];$total_m += getM(getAmByHM($data['hm']),$data['k']); $ipk = getIPK($total_m, $total_k);
         echo "<tr style='background:white;' align='center' >
             <td style='background:#C2F9FF;'>".$data['mata_kuliah']."</td>
             <td >".$data['kode_mk']."</td>
