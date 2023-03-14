@@ -15,8 +15,9 @@
     <title>Document</title>
 </head>
 <body>
+    Nilai session 3 saat ini : <br>
 <?php 
-    if($_SESSION['npm']){
+    if(isset($_SESSION['npm'])){
         echo "Nilai Session saat ini ".$_SESSION['npm'];
     }
     else {

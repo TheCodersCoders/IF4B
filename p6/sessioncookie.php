@@ -3,7 +3,7 @@
 
     // ambil $_POST
     if(isset($_POST['npm'])){
-        $_SESSION['nis'] = $_POST['npm'];
+        $_SESSION['npm'] = $_POST['npm'];
     }
 ?>
 <!DOCTYPE html>
@@ -16,8 +16,8 @@
 </head>
 <body>
     <?php 
-    if($_SESSION['nis']){
-        echo "Nilai Session saat ini ".$_SESSION['nis'];
+    if($_SESSION['npm']){
+        echo "Nilai Session saat ini ".$_SESSION['npm'];
     }
     ?>
     <form action="" method="POST">
