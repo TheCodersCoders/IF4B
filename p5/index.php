@@ -21,13 +21,13 @@
                         <input type="text" name="nama" class="form-control">
                         <!-- Input Radio JK -->
                         <div class="form-check mt-3">
-                            <input class="form-check-input" type="radio" name="jk"  value="Laki-laki">
+                            <input class="form-check-input" type="radio" name="jk"  value="L">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Laki - laki
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jk" value="Perempuan">
+                            <input class="form-check-input" type="radio" name="jk" value="P">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Perempuan
                             </label>
@@ -36,13 +36,13 @@
                         <div class="input-group mb-3">
                             <select class="form-select" name="kota">
                                 <option selected>Kota</option>
-                                <option value="Olympus">Olympus</option>
-                                <option value="Asgardian">Asgardian</option>
-                                <option value="Belitung">Belitung</option>
-                                <option value="Luxvillee">Luxvilee</option>
-                                <option value="Wakanda">Wakanda</option>
-                                <option value="Atlantis">Atlantis</option>
-                                <option value="Kamar-Taj">Kamar-Taj</option>
+                                <option value="1">Olympus</option>
+                                <option value="2">Asgardian</option>
+                                <option value="3">Belitung</option>
+                                <option value="4">Luxvilee</option>
+                                <option value="5">Wakanda</option>
+                                <option value="6">Atlantis</option>
+                                <option value="7">Kamar-Taj</option>
                             </select>
                         </div>
                         <!-- Tanggal Lahir -->
