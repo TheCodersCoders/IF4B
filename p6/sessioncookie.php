@@ -3,7 +3,7 @@
 
     // ambil $_POST
     if(isset($_POST['npm'])){
-        $_SESSION['npm'] = $_POST['npm'];
+        $_SESSION['nis'] = $_POST['npm'];
     }
 ?>
 <!DOCTYPE html>
@@ -16,14 +16,15 @@
 </head>
 <body>
     <?php 
-    if($_SESSION['npm']){
-        echo $_SESSION['npm'];
+    if($_SESSION['nis']){
+        echo "Nilai Session saat ini ".$_SESSION['nis'];
     }
     ?>
     <form action="" method="POST">
         NPM : <input type="text" name="npm">
         <input type="submit" value="submit">
-    <a href="sessioncookie2.php"></a>
+        <br>
+    <a href="sessioncookie2.php">ke session cookie2</a>
     </form>
 </body>
 </html>

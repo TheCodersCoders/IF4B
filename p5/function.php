@@ -35,9 +35,7 @@ function getKota($kota){
 }
 
     function getTgl($tanggal){
-        // pisahkan tanda - dan jadikan array
-        $datetime = DateTime::createFromFormat('Y-m-d', $tanggal);
-        return $datetime->format('d-m-Y');
+       echo date('d F Y');
       }
 
 
