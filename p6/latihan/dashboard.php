@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_POST['username']) && isset($_POST['nama'])){
+  $_SESSION['username'] = $_POST['username'];
+  $_SESSION['nama'] = $_POST['nama'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +18,7 @@ session_start();
 
 <body>
     <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">Universitas MDP</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +35,16 @@ session_start();
 </nav>
 
 <!-- Page Content -->
-<section class="py-5 mt-4">
-  <div class="container">
-    <h2 class="fw-light text-end">Selamat Datang : 
-        // echo username dan name
+<section class="py-5 mt-4 ">
+  <div class="container text-center">
+    <h2 class="fw-light">Selamat Datang 
+      <br>
+    <?php 
+    if($_SESSION['username'] && $_SESSION['nama']){
+      echo $_SESSION['nama']." " ;
+        echo $_SESSION['username'];
+    }
+    ?>
     </h2>
   </div>
 </section>
