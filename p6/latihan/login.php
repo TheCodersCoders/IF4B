@@ -15,13 +15,13 @@
     <title>Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color:#06E5DE">
 
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="card border-0 shadow rounded-3 my-5">
-                    <div class="card-body p-4 p-sm-5">
+                <div class="card border-0 shadow rounded-3 my-5 bg-dark" style="color: white">
+                    <div class="card-body p-4 p-sm-5" style="color: white">
                         <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
                       <?php
                         if(isset($_SESSION['error'])){
@@ -33,7 +33,7 @@
                         unset($_SESSION['sukses']);
                             }
                             ?>
-                        <form action="proses.php" method="POST">
+                        <form action="proses.php" method="POST" style="color: black">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" name="username">
                                 <label for="floatingInput">Username</label>

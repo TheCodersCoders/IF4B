@@ -19,11 +19,6 @@ foreach($users as $data){
         $_SESSION['nama'] = $data['nama'];
         header('Location: dashboard.php');
     }
-    // else if($data['username'] != $username && $data['password'] != $password){
-    //     $canLogin = false;
-    //     $_SESSION['error'] = "Username dan password salah";
-    //     header('Location: login.php');
-    // }
     else if($data['username'] != $username && $data['password'] == $password){
         $canLogin = false;
         $_SESSION['error'] = "Username Salah!!";

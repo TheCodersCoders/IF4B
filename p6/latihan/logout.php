@@ -4,6 +4,7 @@
  
  if(isset($_POST['out'])){
     session_unset();
+    $_SESSION['sukses'] = "Sampai Jumpa Kembali";
     header('Location: login.php');
  }
  
