@@ -1,0 +1,15 @@
+.card1 {
+    margin-left: 200px;
+}
+.card {
+    margin-left: 20px;
+}
+
+@media screen and(max-width: 780px){
+    .card{
+        margin-left: auto;
+    }
+    .card1{
+        margin-left: 80px;
+    }
+}
