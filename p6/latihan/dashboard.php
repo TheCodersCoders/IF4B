@@ -20,7 +20,7 @@ if (isset($_POST['username']) && isset($_POST['nama'])) {
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
-    <div class="container">
+    <div class="container col-lg-12 col-xs-6">
       <a class="navbar-brand" href="#">Universitas MDP</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
