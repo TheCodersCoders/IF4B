@@ -5,12 +5,27 @@
     margin-left: 20px;
 }
 
+ul li{
+    display: inline-flex;
+}
+
+
 @media screen and(max-width: 780px){
     .card{
-        margin-left: auto;
+        margin: 50px auto;
     }
-    .card1{
+    table tr td .card1{
         margin-left: 80px;
+    }
+    img{
+        width: 100%;
+    }
+    td{
+        width: fit-content;
+    }
+    ul{
+        margin-left: auto;
+        display: flexbox;
     }
 }
 

@@ -49,34 +49,42 @@ if (isset($_POST['username']) && isset($_POST['nama'])) {
       </h2>
     </div>
   </section>
-  <section class="section2">
+  <section class="text-center">
     <h3 class="text-center mt-3">Kursus</h3>
     <hr>
-    <table>
-      <td>
-        <div class="card card1" style="width: 18rem; margin-left: 200px">
+    <div class="row align-items-start m-auto mb-2 justify-content-center ">
+    <div class="col-lg-3 col-sm-2">
+    <div class="card" style="width: 18rem;">
           <img src="img/ecology.png" class="card-img-top" alt="..." ">
           <div class="card-body">
             <p class="card-text text-center">Komputer Hijau</p>
           </div>
         </div>
-      </td>
-      <td>
-        <div class="card " style="width: 18rem;">
+    </div>
+    <div class="col-lg-3 col-sm-2">
+    <div class="card " style="width: 18rem;">
           <img src="img/ml.png" class="card-img-top" alt="..." >
           <div class="card-body">
             <p class="card-text text-center">Machine Learning</p>
           </div>
         </div>
-      </td>
-      <td>
-        <div class="card " style="width: 18rem; ">
+    </div>
+    <div class="col-lg-3 col-sm-2">
+    <div class="card " style="width: 18rem; ">
           <img src="img/ba.png" class="card-img-top" alt="..." >
           <div class="card-body">
             <p class="card-text text-center">Business Analyst</p>
-          </div>
         </div>
-      </td>
+    </div>
+  </div>
+       
+      
+     
+       
+    
+      
+        
+  
 
     </table>
   </section>
