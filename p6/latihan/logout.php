@@ -1,10 +1,10 @@
 <?php
 // memulai session
 session_start();
-if (isset($_POST['out'])) {
+if(isset($_POST['out'])){
     session_unset();
-    $_SESSION['sukses'] = "Sampai Jumpa Kembali";
     header('Location: login.php');
+    $_SESSION['sukses'] = "Sampai Jumpa Kembali";
 }
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,3 @@ if (isset($_POST['out'])) {
 </body>
 
 </html>
-
-<?php
-session_destroy();
-?>

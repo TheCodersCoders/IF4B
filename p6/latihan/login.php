@@ -39,7 +39,7 @@ if (isset($_POST['username'])) {
                             unset($_SESSION['error']);
                         }
                         if (isset($_SESSION['sukses'])) {
-                            echo "<h5 class='text-danger'>" . $_SESSION['sukses'] . "</h5>";
+                            echo "<h5 class='text-success'>" . $_SESSION['sukses'] . "</h5>";
                             unset($_SESSION['sukses']);
                         }
                         ?>
