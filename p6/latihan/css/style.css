@@ -8,7 +8,9 @@
 ul li{
     display: inline-flex;
 }
+/* Loader */
 
+/* End Loader */
 
 @media screen and(max-width: 780px){
     .card{
