@@ -29,6 +29,11 @@ foreach($users as $data){
         $_SESSION['error'] = "Password Salah!!";
         header('Location: login.php');
     }
+    else if($data['username'] !== $username && $data['password'] != $password){
+        $canLogin = false;
+        $_SESSION['error'] = "Salah Galo!";
+        header('Location: login.php');
+    }
 
 }
 ?>
