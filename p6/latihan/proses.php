@@ -29,7 +29,11 @@ foreach($users as $data){
         $_SESSION['error'] = "Password Salah!!";
         header('Location: login.php');
     }
-
+    else if(!$canLogin){
+        $canLogin = false;
+        $_SESSION['error'] = "Salah Galo!!";
+        header('Location: login.php');
+    }
 
 }
 ?>
