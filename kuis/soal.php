@@ -147,15 +147,19 @@ echo "<table border=1  align='center'>
     <th >Jabatan</th>
     <th >Gaji</th>
 </tr>";
+$total_gaji = 0;
     foreach($dataPegawai as $data){
         echo "<tr><td>".$data['kode']."</td>
             <td>".$data['nama_pegawai']."</td>
             <td>".getJabatan($data['kode_jabatan'])."</td>
-            <td>".getGaji($data['kode_jabatan'])."</td>
-        </tr>";
+            <td>".getGaji($data['kode_jabatan'])."</td>";
+            $total_gaji += getGaji($data['kode_jabatan']);
+       echo "</tr>";
     }
+    echo "<tr><td>Total Gaji = ".$total_gaji."</td></tr>";
     echo "</table>";
-    echo "Total Gaji".totalGaji($data['kode_jabatan'])."<br>";
+
+    
 
 function getJabatan($kode_jabatan){
     if($kode_jabatan == "DB"){
@@ -195,9 +199,7 @@ function getGaji($kode_jabatan){
 // e. Hitung dan tampilkan total gaji semua pegawai yang harus dibayar perusahaan
 
 // TULIS JAWABAN SOAL KE-4 DI BAWAH SINI YA
-function totalGaji($kode_jabatan){
-    return getGaji($kode_jabatan);
-}
+
 // ==========================================================================================
 
 // soal 5 (20 poin)
