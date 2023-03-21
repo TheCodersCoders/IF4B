@@ -1,4 +1,4 @@
-<?php
+  <?php
 require("function.php");
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
