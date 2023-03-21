@@ -140,9 +140,9 @@ $dataPegawai = [
     ],
     ];
 
-echo "<table border=1  align='center'> 
+echo "<table border=1  align='center' style='text-align:center;'> 
     <tr>
-    <th >Kode</th>
+    <th rowspan=1>Kode</th>
     <th >Nama Pegawai</th>
     <th >Jabatan</th>
     <th >Gaji</th>
@@ -152,11 +152,11 @@ $total_gaji = 0;
         echo "<tr><td>".$data['kode']."</td>
             <td>".$data['nama_pegawai']."</td>
             <td>".getJabatan($data['kode_jabatan'])."</td>
-            <td>".getGaji($data['kode_jabatan'])."</td>";
+            <td>".number_format(getGaji($data['kode_jabatan']))."</td>";
             $total_gaji += getGaji($data['kode_jabatan']);
        echo "</tr>";
     }
-    echo "<tr><td>Total Gaji = ".$total_gaji."</td></tr>";
+    echo "<tr><td>Total Gaji = ".number_format($total_gaji)."</td></tr>";
     echo "</table>";
 
     
