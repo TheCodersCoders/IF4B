@@ -2,10 +2,18 @@
 @section('title', 'Halaman Fakultas')
 @section('subtitle', 'Fakultas')
 @section('content')
-        <ul>
-            @foreach ($dataFakultas as $item)
-            <li>
+<table class="table table-hover table-striped">
+    <thead>
+     <th>Nama Fakultas</th>   
+    </thead>
+    <tbody>
+        @foreach ($dataFakultas as $item)
+        <tr>
+            <td>
                 {{ $item }}
-            </li>
-            @endforeach
-        </ul>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+        </table>
+@endsection

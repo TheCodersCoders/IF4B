@@ -32,4 +32,8 @@ Route::get('/fakultas', function(){
     // return view('fakultas.index', ['fikr' => 'Fakultas Ilmu Komputer dan Rekayasa']);
     return view('fakultas.index')
                 ->with('dataFakultas',['Fakultas Ilmu Komputer dan Rekayasa', 'Fakultas Ilmu Ekonomi']);
+    return view('fakultas.second')
+                ->with('dataJurusan',['Informatika', 'Sistem Informasi', 'Manajemen'],);
+    
 });
+
