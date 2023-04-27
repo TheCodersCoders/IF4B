@@ -14,7 +14,8 @@ class CreateFakultasTable extends Migration
     public function up()
     {
         Schema::create('fakultas', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
             $table->char('nama_fakultas', 50);
             $table->char('nama_dekan', 50);
             $table->char('nama_wakil_dekan', 50);
