@@ -17,8 +17,12 @@
         <tr>
             <td>{{ $item->nama_fakultas }}</td>
             <td>{{ $item->nama_dekan }}</td>
-            <td>{{ $item->nama_wakil_dekan }}</td> 
-            <td>{{ $item->prodi }}</td>
+            <td>{{ $item->nama_wakil_dekan }}</td>
+            <td>
+                @foreach ( $item->prodi as $prodi )
+                {{ $prodi->nama_prodi }}
+                @endforeach 
+                </td>
             <td>{{ $item->created_at }}</td>
         </tr>
         @endforeach
