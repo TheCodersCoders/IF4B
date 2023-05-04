@@ -6,6 +6,10 @@
     <div class="col-lg-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
+          @if (Session::get('success'))
+          <div class="alert alert-success"></div>
+            {{ Session::get ('success')}}
+          @endif
           <h4 class="card-title">Fakultas</h4>
          <a href="{{ route('fakultas.create') }}"> <button class="btn btn-info mb-2">Tambah Data</button></a>
           <div class="table-responsive">

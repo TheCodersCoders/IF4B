@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fakultas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FakultasController extends Controller
 {
@@ -37,7 +38,21 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request->nama_dekan);
+        // validate data
+        $validateData = $request->validate([
+            'nama_fakultas' => 'required|min:5|max:40',
+            'nama_dekan' => 'required',
+            'nama_wakil' => 'required'
+        ]);
+        // dd($validateData);
+        $fakultas = new Fakultas();
+        $fakultas->id=Str::uuid();
+        $fakultas->nama_fakultas = $validateData['nama_fakultas'];
+        $fakultas->nama_dekan = $validateData['nama_dekan'];
+        $fakultas->nama_wakil_dekan = $validateData['nama_wakil'];
+        $fakultas->save();
+        return redirect()->route('fakultas.index')->with('success', "Data Fakultas".$validateData['nama_fakultas']."berhasil disimpan");
     }
 
     /**
