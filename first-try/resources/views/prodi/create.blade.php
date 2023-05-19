@@ -12,27 +12,25 @@
                   </p>
                   <form class="forms-sample" action="{{ route('prodi.store') }}" method="post"> @csrf
                     <div class="form-group">
-                      <label for="exampleInputUsername1">Nama Prodi</label>
-                      <input type="text" class="form-control" id="nama" placeholder="Nama Fakultas" name="nama_prodi">
-                      @error('nama_fakultas')
+                      <label>Nama Prodi</label>
+                      <input type="text" class="form-control" id="nama" placeholder="Nama Fakultas" name="nama_prodi" value="{{ old('nama_prodi') }}">
+                      @error('nama_prodi')
                           <span class="text-danger">{{ $message }}</span>
                       @enderror
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Fakultas</label>
-                      <input type="name" class="form-control" id="namaDekan" placeholder="Nama Dekan" name="fakultas_id">
-                      @error('nama_dekan')
+                    <label for="fakultas_id">Nama Fakultas</label>
+                    <select name="fakultas_id" class="form-select js-example-basic-single" aria-label="Default select example">
+                      @foreach ($fakultas as $item )  
+                      <option selected value="{{ $item['id'] }}">{{ $item['nama_fakultas'] }}</option>
+                      @endforeach
+                      
+                    </select>
+                      @error('fakultas_id')
                       <span class="text-danger">{{ $message }}</span>
                   @enderror
                     </div>
-                    <div class="form-check form-check-flat form-check-primary">
-                      <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input">
-                        Remember me
-                      <i class="input-helper"></i></label>
-                    </div>
                     <button type="submit" class="btn btn-info me-2">Submit</button>
-                    <a href="{{ route('fakultas.index') }}"><button class="btn btn-light">Cancel</button></a>
+                    <a href="{{ route('prodi.index') }}"><button class="btn btn-danger mt-2">Cancel</button></a>
                   </form>
                 </div>
               </div>

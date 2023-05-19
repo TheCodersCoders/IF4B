@@ -9,6 +9,10 @@
   <!-- base:css -->
   <link rel="stylesheet" href=" {{ asset('vendors/mdi/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet" href=" {{ asset('vendors/css/vendor.bundle.base.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -55,6 +59,13 @@
           <a class="nav-link" href="{{ url('fakultas') }}">
             <i class="mdi mdi-professional-hexagon menu-icon"></i>
             <span class="menu-title">Fakultas</span>
+            <div class="badge badge-info badge-pill">2</div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('mahasiswa') }}">
+            <i class="mdi mdi-professional-hexagon menu-icon"></i>
+            <span class="menu-title">Mahasiswa</span>
             <div class="badge badge-info badge-pill">2</div>
           </a>
         </li>
@@ -337,6 +348,33 @@
   <!-- Custom js for this page-->
   <script src="{{ asset('js/dashboard.js') }}"></script>
   <!-- End custom js for this page-->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script>
+    $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+  <script type="text/javascript">
+     $('.show_confirm').click(function(event) {
+         var form =  $(this).closest("form");
+         var name = $(this).data("name");
+         event.preventDefault();
+         swal({
+             title: `Are you sure you want to delete this record?`,
+             text: "If you delete this, it will be gone forever.",
+             icon: "warning",
+             buttons: true,
+             dangerMode: true,
+         })
+         .then((willDelete) => {
+           if (willDelete) {
+             form.submit();
+           }
+         });
+     });
+ 
+</script>
 </body>
 
 </html>

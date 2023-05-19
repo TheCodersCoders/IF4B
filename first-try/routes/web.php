@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\ProdiController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,18 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/home', function () {
-//     return view('home');
-// });
-// Route::get('/dosen', function() {
-//     return view('dosen');
-// });
-// Route::get('/dosen/index', function() {
-//     return view('dosen.index');
-// });
-
-Route::get('prodi', [ProdiController::class, 'index'])->name('prodi');
 Route::resource('fakultas', FakultasController::class);
+Route::resource('prodi', ProdiController::class);
+Route::resource('mahasiswa', MahasiswaController::class);
