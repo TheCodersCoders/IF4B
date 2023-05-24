@@ -88,7 +88,8 @@ class MahasiswaController extends Controller
      */
     public function edit(Mahasiswa $mahasiswa)
     {
-        //
+        $prodi = Prodi::orderBy('nama_prodi','ASC')->get();
+        return view('mahasiswa.edit')->with('mahasiswa', $mahasiswa)->with('prodi', $prodi);
     }
 
     /**
@@ -100,7 +101,28 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
-        //
+        
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'tanggal_lahir' => 'required',
+            'kota_lahir' => 'required',
+            'foto' => 'required|file|image|max:5000',
+            'prodi_id' => 'required'
+            ]);
+    
+            $temp = $request->foto->getClientOriginalExtension();
+            $nama_foto = $mahasiswa->npm . '.' . $temp;
+            $path = $request->foto->storeAs('public/images', $nama_foto);
+           
+            $mahasiswa->npm = $mahasiswa->npm;
+            $mahasiswa->nama = $validateData['nama'];
+            $mahasiswa->foto = $nama_foto;
+            $mahasiswa->tanggal_lahir = $validateData['tanggal_lahir'];
+            $mahasiswa->kota_lahir = $validateData['kota_lahir'];
+            $mahasiswa->prodi_id = $validateData['prodi_id'];
+            $mahasiswa->save();
+    
+            return redirect()->route('mahasiswa.index')->with('success',"Data ".$validateData['nama']. " berhasil disimpan");
     }
 
     /**
@@ -115,5 +137,12 @@ class MahasiswaController extends Controller
         return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil dihapus');
 
 
+    }
+
+    public function multiDelete(Request $request)
+    {
+        Mahasiswa::whereIn('id', $request->get('selected'))->delete();
+
+    return response("Selected mahasiswa(s) deleted successfully.", 200);
     }
 }

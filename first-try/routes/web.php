@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::resource('fakultas', FakultasController::class);
 Route::resource('prodi', ProdiController::class);
 Route::resource('mahasiswa', MahasiswaController::class);
+Route::post('/posts/mhs-multi-delete', [MahasiswaController::class, 'multiDelete'])->name('posts.mhs-multi-delete');
