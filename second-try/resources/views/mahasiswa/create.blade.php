@@ -56,8 +56,8 @@
                       @enderror
                     </div>
                     </div>
-                    <button type="submit" class="btn btn-info me-2">Submit</button>
-                    <a href="{{ route('mahasiswa.index') }}"><button class="btn btn-danger mt-2">Cancel</button></a>
+                    <button type="submit" class="btn btn-info mt-2">Submit</button>
+                    <a href="{{ route('mahasiswa.index') }}"><button class="btn btn-danger">Cancel</button></a>
                   </form>
                 </div>
               </div>

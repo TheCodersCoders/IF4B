@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('table_ikan', function (Blueprint $table) {
+        Schema::create('ikans', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
             $table->char('nama_ikan', 50);
             $table->string('foto');
+            $table->string('deskripsi');
+            $table->uuid('table_air_id');
+            $table->foreign('table_air_id')->references('id')->on('table_air')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('table_ikan');
+        Schema::dropIfExists('ikans');
     }
 };

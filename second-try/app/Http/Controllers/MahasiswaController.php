@@ -57,7 +57,7 @@ class MahasiswaController extends Controller
             $temp = $request->foto->getClientOriginalExtension();
             $nama_foto = $validateData['npm'] . '.' . $temp;
             $path = $request->foto->storeAs('public/images', $nama_foto);
-           
+        
             $mahasiswa = new Mahasiswa();
             $mahasiswa->id = Str::uuid();
             $mahasiswa->npm = $validateData['npm'];
