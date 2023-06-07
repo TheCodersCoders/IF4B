@@ -19,6 +19,10 @@
                 <input type="text" class="form-control" id="nama_ikan" placeholder="Ikan" value="{{ old('nama_ikan') }}" name="nama_ikan">
                 <label  class="form-label">Deskripsi</label>
                 <textarea type="text" class="form-control" id="deskripsi" placeholder="deskripsi" value="{{ old('deskripsi') }}" name="deskripsi"> </textarea>
+                <label>Jenis Air</label>
+                @foreach ($table_air as $item )
+                  <option value="{{ $item->id }}">{{ $item->jenis_air }}</option>
+                @endforeach
                 <label>Foto</label>
                 <input type="file" class="form-control" id="foto" placeholder="Foto" name="foto" value="{{ old('foto') }}">                    
             @error('foto')
@@ -26,9 +30,9 @@
             @enderror
               </div>
             </div>
-              <button type="submit" class="btn btn-info me-2">Submit</button>
-              <a href="{{ route('ikan.index') }}"><button class="btn btn-danger mt-2">Cancel</button></a>
-        </form>
+              <button type="submit" class="btn btn-info me-2 col-lg-6">Submit</button>
+            </form>
+            <a href="{{ route('ikan.index') }}"><button class="btn btn-danger mt-2 col-lg-6">Cancel</button></a>
     </div>
 
 

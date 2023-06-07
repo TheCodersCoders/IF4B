@@ -33,6 +33,9 @@
                 <div class="card-text">
                     {{ $item->deskripsi }}
                 </div>
+                <div class="card-text">
+                    {{ $item->table_air->jenis_air }}
+                </div>
                 <hr>
                 <a href="{{ route('ikan.edit' , $item->id)  }}"><button class="btn btn-success col-lg-4 m-2 btn-flat">Edit</button></a>
                 <form method="POST" class="delete-form" action="{{ route('ikan.destroy', $item->id) }}">
