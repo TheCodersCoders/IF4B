@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class Ikan extends Model
 {
     use HasFactory,HasUuids;
-    protected $fillable = [ 'nama_ikan', 'deskripsi', 'foto'];
+    protected $fillable = [ 'nama_ikan', 'deskripsi', 'foto', 'air_id'];
+
+    public function air(){
+        return $this->belongsTo(Air::class,'air_id');
+    }
 
 }

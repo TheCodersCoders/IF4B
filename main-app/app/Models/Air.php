@@ -9,4 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 class Air extends Model
 {
     use HasFactory, HasUuids;
+    protected $table='airs';
+
+    protected $fillable = [ 'jenis_air', 'foto'];
+    
+    
+
 }

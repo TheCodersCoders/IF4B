@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Pilihan</title>
     <link href="{{ asset('css/style2.css') }}" rel="stylesheet" />
 </head>
 
@@ -20,7 +20,7 @@
                         <div class="col-xs-12 col-sm-4">
                             <div class="card">
                                 <a class="img-card"
-                                    href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                                    href="">
                                     <img
                                         src="{{ asset('assets/img/ikan.jpg') }}" />
                                 </a>
@@ -45,7 +45,7 @@
                         <div class="col-xs-12 col-sm-4">
                             <div class="card">
                                 <a class="img-card"
-                                    href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                                    href="">
                                     <img
                                         src="{{ asset('assets/img/portfolio/thumbnails/6.jpg') }}" />
                                 </a>
@@ -60,7 +60,7 @@
                                     </p>
                                 </div>
                                 <div class="card-read-more">
-                                    <a href="https://codepen.io/wisnust10/full/ZWERZK/" class="btn btn-link btn-block">
+                                    <a href="{{ url('air') }}" class="btn btn-link btn-block">
                                         Disini!!
                                     </a>
                                 </div>
@@ -69,7 +69,7 @@
                         <div class="col-xs-12 col-sm-4">
                             <div class="card">
                                 <a class="img-card"
-                                    href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                                    href="{{ url('air') }}">
                                     <img
                                         src="{{ asset('assets/img/portfolio/thumbnails/2.jpg') }}" />
                                 </a>
@@ -85,7 +85,7 @@
                                     </p>
                                 </div>
                                 <div class="card-read-more">
-                                    <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html"
+                                    <a href="{{ url('makanan') }}"
                                         class="btn btn-link btn-block">
                                         Disini!!
                                     </a>

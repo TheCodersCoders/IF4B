@@ -40,7 +40,7 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Selamat Datang <br> 'username's</h1>
+                        <h1 class="text-white font-weight-bold">Selamat Datang <br> {{ auth()->user()->name }}</h1>
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
@@ -241,7 +241,7 @@
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2023 - Company Name</div></div>
             <form method="POST" action="{{ route('logout') }}" class="text-center">
                 @csrf
-                <button type="submit" class="opacity-75 btn-hover mb-2 mt-2" style="width: 100px; border-radius: 5px;">Logout</button>
+                <button type="submit" class="btn-hover mb-2 mt-2 btn-danger" style="width: 100px; border-radius: 5px;">Logout</button>
               </form>
         </footer>
         <!-- Bootstrap core JS-->

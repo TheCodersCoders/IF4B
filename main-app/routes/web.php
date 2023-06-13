@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AirController;
 use App\Http\Controllers\IkanController;
+use App\Http\Controllers\MakananController;
 use App\Http\Controllers\PilihanController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::resource('pilihan', PilihanController::class);
+Route::resource('ikan', IkanController::class);
+Route::resource('air', AirController::class);
+Route::resource('makanan', MakananController::class );
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,8 +47,7 @@ Route::get('/logout', function(){
     return Redirect::to('login');
  });
 
-Route::resource('pilihan', PilihanController::class);
-Route::resource('ikan', IkanController::class);
+
 
 
 require __DIR__.'/auth.php';

@@ -17,12 +17,25 @@
             <div class="mb-3 col-lg-6">
                 <label  class="form-label">Nama Ikan</label>
                 <input type="text" class="form-control" id="nama_ikan" placeholder="Ikan" value="{{ old('nama_ikan') }}" name="nama_ikan">
+                @error('nama_ikan')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
                 <label  class="form-label">Deskripsi</label>
                 <textarea type="text" class="form-control" id="deskripsi" placeholder="deskripsi" value="{{ old('deskripsi') }}" name="deskripsi"> </textarea>
+                @error('deskripsi')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
                 <label>Jenis Air</label>
-                @foreach ($table_air as $item )
+                <br>
+                <select name="air_id" id="form-control js-example-basic-single mb-3" class="form-select">
+                @foreach ($air as $item )
                   <option value="{{ $item->id }}">{{ $item->jenis_air }}</option>
                 @endforeach
+              </select>
+              @error('air_id')
+              <span class="text-danger">{{ $message }}</span>
+          @enderror
+              <br>
                 <label>Foto</label>
                 <input type="file" class="form-control" id="foto" placeholder="Foto" name="foto" value="{{ old('foto') }}">                    
             @error('foto')

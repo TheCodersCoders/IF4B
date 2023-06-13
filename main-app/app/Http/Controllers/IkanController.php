@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Air;
 use App\Models\Ikan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -23,8 +24,9 @@ class IkanController extends Controller
      */
     public function create()
     {
-        $ikan = Ikan::all();
-        $id = $ikan;
+        $air = Air::all();
+        $id = $air;
+        return view('ikan.create', compact('air'));
         return view('ikan.create', ['id' => $id]);
     }
 
@@ -36,7 +38,9 @@ class IkanController extends Controller
         $validateData = $request ->validate([
             'nama_ikan' => 'required|unique:ikans',
             'deskripsi' => 'required',
-            'foto' => 'required|file|image'
+            'foto' => 'required|file|image',
+            'air_id' => 'required'
+
         ]);
 
         $temp = $request->foto->getClientOriginalExtension();
@@ -47,6 +51,7 @@ class IkanController extends Controller
         $ikan->id=Str::uuid();
         $ikan->nama_ikan = $validateData['nama_ikan'];
         $ikan->deskripsi = $validateData['deskripsi'];
+        $ikan->air_id = $validateData['air_id'];
         $ikan->foto = $nama_foto;
         $ikan->save();
 
@@ -78,7 +83,8 @@ class IkanController extends Controller
         $validateData = $request ->validate([
             'nama_ikan' => 'required|min:3|max:100',
             'deskripsi' => 'required',
-            'foto' => 'required|file|image|max:5000'
+            'foto' => 'required|file|image|max:5000',
+            'air_id' => 'required'
         ]);
 
         $temp = $request->foto->getClientOriginalExtension();
@@ -87,6 +93,7 @@ class IkanController extends Controller
 
         $ikan->nama_ikan = $validateData['nama_ikan'];
         $ikan->deskripsi = $validateData['deskripsi'];
+        $ikan->air_id = $validateData['air_id'];
         $ikan->foto = $nama_foto;
         $ikan->save();
 

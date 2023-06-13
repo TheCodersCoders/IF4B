@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Air;
+use App\Models\Ikan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class AirController extends Controller
 {
@@ -11,7 +15,8 @@ class AirController extends Controller
      */
     public function index()
     {
-        //
+        $air = Air::all();
+        return view('air.index')->with('airs', $air);
     }
 
     /**
@@ -19,15 +24,32 @@ class AirController extends Controller
      */
     public function create()
     {
-        //
+        $air = Air::all();
+        $id = $air;
+        return view('air.create', ['id' => $id]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request )
     {
-        //
+        $validateData = $request ->validate([
+            'jenis_air' => 'required|unique:airs',
+            'foto' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg'
+        ]);
+
+        $temp = $request->foto->getClientOriginalExtension();
+        $nama_foto = $validateData['jenis_air'] . '.' . $temp;
+        $path = $request->foto->storeAs('public/images', $nama_foto);
+
+        $air = new Air();
+        $air->id = Str::uuid();
+        $air->jenis_air = $validateData['jenis_air'];
+        $air->foto = $nama_foto;
+        $air->save();
+        return redirect()->route('air.index')->with('success',"Data ".$validateData['jenis_air']. " berhasil disimpan");
+
     }
 
     /**
@@ -41,24 +63,40 @@ class AirController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Air $air)
     {
-        //
+        return view('air.edit')->with('air', $air);
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Air $air)
     {
-        //
+        $validateData = $request ->validate([
+            'jenis_air' => 'required|unique:airs',
+            'foto' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg'
+        ]);
+
+        $temp = $request->foto->getClientOriginalExtension();
+        $nama_foto = $validateData['jenis_air'] . '.' . $temp;
+        $path = $request->foto->storeAs('public/images', $nama_foto);
+
+        $air->id = Str::uuid();
+        $air->jenis_air = $validateData['jenis_air'];
+        $air->foto = $nama_foto;
+        $air->save();
+        return redirect()->route('air.index')->with('success',"Data ".$validateData['jenis_air']. " berhasil disimpan");
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Air $air)
     {
-        //
+        $air->delete();
+        return redirect()->route('air.index')->with('success', 'Data berhasil dihapus');
     }
 }

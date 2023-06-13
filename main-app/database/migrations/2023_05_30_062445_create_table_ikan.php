@@ -17,8 +17,8 @@ return new class extends Migration
             $table->char('nama_ikan', 50);
             $table->string('foto');
             $table->string('deskripsi');
-            $table->uuid('table_air_id');
-            $table->foreign('table_air_id')->references('id')->on('table_air')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->uuid('air_id');
+            $table->foreign('air_id')->references('id')->on('airs')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
