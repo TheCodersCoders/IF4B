@@ -34,19 +34,17 @@ class AirController extends Controller
      */
     public function store(Request $request )
     {
+        $this->authorize('create', Air::class);
+
         $validateData = $request ->validate([
             'jenis_air' => 'required|unique:airs',
-            'foto' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
-        $temp = $request->foto->getClientOriginalExtension();
-        $nama_foto = $validateData['jenis_air'] . '.' . $temp;
-        $path = $request->foto->storeAs('public/images', $nama_foto);
+       
 
         $air = new Air();
         $air->id = Str::uuid();
         $air->jenis_air = $validateData['jenis_air'];
-        $air->foto = $nama_foto;
         $air->save();
         return redirect()->route('air.index')->with('success',"Data ".$validateData['jenis_air']. " berhasil disimpan");
 
@@ -76,16 +74,11 @@ class AirController extends Controller
     {
         $validateData = $request ->validate([
             'jenis_air' => 'required|unique:airs',
-            'foto' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
-        $temp = $request->foto->getClientOriginalExtension();
-        $nama_foto = $validateData['jenis_air'] . '.' . $temp;
-        $path = $request->foto->storeAs('public/images', $nama_foto);
 
         $air->id = Str::uuid();
         $air->jenis_air = $validateData['jenis_air'];
-        $air->foto = $nama_foto;
         $air->save();
         return redirect()->route('air.index')->with('success',"Data ".$validateData['jenis_air']. " berhasil disimpan");
 

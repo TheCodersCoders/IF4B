@@ -35,6 +35,8 @@ class IkanController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Ikan::class);
+
         $validateData = $request ->validate([
             'nama_ikan' => 'required|unique:ikans',
             'deskripsi' => 'required',

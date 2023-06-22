@@ -16,15 +16,10 @@
           <div class="form-group">
             <div class="mb-3 col-lg-6">
                 <label  class="form-label">Jenis Makanan</label>
-                <input type="text" class="form-control" id="jenis_makanan" placeholder="Ikan" value="{{ old('jenis_makanan') }}" name="jenis_makanan">
+                <input type="text" class="form-control" id="jenis_makanan" placeholder="Jenis makanan" value="{{ old('jenis_makanan') }}" name="jenis_makanan">
                 @error('jenis_makanan')
                 <span class="text-danger">{{ $message }}</span>
-              <br>
-                <label>Foto</label>
-                <input type="file" class="form-control" id="foto" placeholder="Foto" name="foto" value="{{ old('foto') }}">                    
-            @error('foto')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
+                @enderror
               </div>
             </div>
               <button type="submit" class="btn btn-info me-2 col-lg-6">Submit</button>

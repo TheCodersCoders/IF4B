@@ -18,12 +18,7 @@
           <div class="form-group">
             <div class="mb-3 col-lg-6">
                 <label  class="form-label">Jenis Air</label>
-                <input type="text" class="form-control" id="nama_ikan" placeholder="Ikan" value="{{ $ikan->nama_ikan }}" name="nama_ikan">
-                <label>Foto</label>
-                <input type="file" class="form-control" id="foto" placeholder="Foto" name="foto" value="{{ old('foto') }}">                    
-            @error('foto')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
+                <input type="text" class="form-control" id="jenis_air" placeholder="Air" value="{{ $air->jenis_air }}" name="jenis_air">
               </div>
             </div>
               <button type="submit" class="btn btn-info me-2">Submit</button>

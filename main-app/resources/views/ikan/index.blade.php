@@ -21,8 +21,8 @@
   <div class="container" style="margin-top:50px;">
     <div class="row">
       @foreach($ikans as $item )
-        <div class="col-lg-4">
-            <div class="card-sl">
+        <div class="col-lg-3">
+            <div class="card card-sl">
                 <div class="card-image">
                     <img
                         src="{{ asset('storage/images/'.$item->foto) }}" class="img-fluid" />
@@ -34,7 +34,7 @@
                     {{ $item->deskripsi }}
                 </div>
                 <div class="card-text">
-                  {{ $item->airs->jenis_air }}
+                  {{ $item->air->jenis_air }}
                </div>
                 <hr>
                 <a href="{{ route('ikan.edit' , $item->id)  }}"><button class="btn btn-success col-lg-4 m-2 btn-flat">Edit</button></a>

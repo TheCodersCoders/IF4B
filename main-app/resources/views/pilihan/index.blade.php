@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <a class="btn btn-dark btn-xl mt-5" href="{{ url('main') }}" style="width: 100px">Back</a>
+            <a class="btn btn-dark btn-xl mt-5" href="{{ url('dashboard') }}" style="width: 100px">Back</a>
         </div>
     </section>
 

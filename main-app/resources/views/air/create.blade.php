@@ -22,11 +22,6 @@
                 @error('jenis_air')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
-                <label>Foto</label>
-                <input type="file" class="form-control" id="foto" placeholder="Foto" name="foto" value="{{ old('foto') }}"> 
-                @error('foto')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
               </div>
             </div>
               <button type="submit" class="btn btn-info me-2 col-lg-6">Submit</button>

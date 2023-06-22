@@ -15,7 +15,6 @@ return new class extends Migration
             $table->uuid('id');
             $table->primary('id');
             $table->char('jenis_air', 5);
-            $table->string('foto');
             $table->timestamps();
         });
     }
